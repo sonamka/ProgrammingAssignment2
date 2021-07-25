@@ -7,20 +7,20 @@
 ##The makecacheMatrix function consists of get, setInverse, getInverse, and list
 
 makecacheMatrix <- function(x = matrix()){
-    inv <- NULL
-    set <- function(y){
-      x<<- y
-      inv<<- NULL
-    }
-    get<- function() {x}
-    setInverse<- function(inverse) {inv<<- inverse}
-    getInverse<- function() {inv}
-    list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+  inv <- NULL
+  set <- function(y){
+    x<<- y
+    inv<<- NULL
+  }
+  get<- function() x
+  setInverse<- function(inverse) inv<<- inverse
+  getInverse<- function() inv
+  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
 }
 
 
 ## Write a short comment describing this function
-##The cacheSolve calculates inverse of matrix
+##The cacheSolve calculates inverse of matrix (must be square matrix)
 
 cacheSolve<- function(x, ...){
   inv<- x$getInverse()
